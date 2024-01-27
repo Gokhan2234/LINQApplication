@@ -57,6 +57,32 @@ namespace LINQApplication
                 Console.WriteLine(name);
             Console.WriteLine();
 
+            
+            
+            
+            //  let     is used to introduce an new variable
+
+            var lowerCaseStudentNames3 = from s in studentList
+                                         let lowerCaseStudentName = s.StudentName.ToLower().StartsWith("r")
+                                         //where lowerCaseStudentName.StartsWith("r")
+                                         select lowerCaseStudentName;
+
+            foreach (var name in lowerCaseStudentNames3)
+                Console.WriteLine(name);
+            Console.WriteLine();
+
+            break;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
