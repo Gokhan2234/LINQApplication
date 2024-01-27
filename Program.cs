@@ -62,16 +62,15 @@ namespace LINQApplication
             
             //  let     is used to introduce an new variable
 
-            var lowerCaseStudentNames3 = from s in studentList
-                                         let lowerCaseStudentName = s.StudentName.ToLower().StartsWith("r")
-                                         //where lowerCaseStudentName.StartsWith("r")
-                                         select lowerCaseStudentName;
+            var upperCaseStudentNames3 = from s in studentList
+                                         let upperCaseStudentName = s.StudentName.ToUpper()
+                                         where upperCaseStudentName.StartsWith("R")
+                                         select upperCaseStudentName;
 
-            foreach (var name in lowerCaseStudentNames3)
+            foreach (var name in upperCaseStudentNames3)
                 Console.WriteLine(name);
             Console.WriteLine();
-
-            break;
+            Console.ReadKey();
 
 
 
@@ -1270,7 +1269,11 @@ namespace LINQApplication
             {
                 Console.WriteLine(strList5.LastOrDefault(s => s.Contains("T")));
             }
-
+            catch(NullReferenceException e)
+            {
+                Console.WriteLine("Null Reference Exception " + e.Message);
+                Console.WriteLine("------------------------------------------------------------------------------");
+            }
             catch(Exception e)
             {
                 Console.WriteLine("Exception is " + e.Message);
